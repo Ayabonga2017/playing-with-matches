@@ -1,6 +1,13 @@
 var allNumbers = document.querySelectorAll(".columns");
 var matchesfound =document.querySelector(".matchesfound");
+var randomiseBtn = document.querySelector(".randomiseBtn");
 var flag = false;
+var numbFound ;
+var match1 = allNumbers[0];
+var match2 = allNumbers[1];
+
+
+randomiseBtn.addEventListener('click',main);
 
 //generates random numbers between 1 - 9
 function randomNumber(value){
@@ -20,9 +27,9 @@ function callAll(){
 }
 
 //matches found
-function found(flag){
+function found(flag, numbFound){
     if(flag){
-        matchesfound.innerHTML = "Matches found";
+        matchesfound.innerHTML = "Matches found at: "+ numbFound;
     }
     else{
         matchesfound.innerHTML = "no matches found";
@@ -40,13 +47,27 @@ function matchingNumbers(){
                 if(allNumbers[i].innerHTML === allNumbers[j].innerHTML){
                     allNumbers[i].classList.add("same");
                     flag = true;
+                    numbFound = allNumbers[i].innerHTML
+                    match1=allNumbers[i];
+                    match2 = allNumbers[j];
                 }
             }
         }
     }
 }
 
-//calling the function to write to the div
-callAll();
-matchingNumbers();
-found(flag);
+function removeColour(match1, match2){
+    match1.classList.remove("same");
+    match2.classList.remove("same");
+}
+
+function main(){
+    flag = false;
+    removeColour(match1, match2);
+    //calling the function to write to the div
+    callAll();
+    matchingNumbers();
+    found(flag, numbFound);
+}
+
+main();

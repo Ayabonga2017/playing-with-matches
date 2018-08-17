@@ -1,6 +1,16 @@
+body{
+    text-align : center;
+}
+
+.top{
+    margin-top : 5rem;
+    display: grid;
+    grid-template-columns : 1fr 2fr 1fr;
+    grid-column-gap : 1em;
+}
 
 .columns{
-    font-size: 8rem;
+    font-size: 4rem;
     color: aqua;
     text-align: center;
     border: 3px solid black;
@@ -9,6 +19,7 @@
 text-align: center;
 font-size: 8rem;
 margin-top: 5rem;
+border: 3px solid black;
 }
 .container > div{
     display: grid;
@@ -17,4 +28,11 @@ margin-top: 5rem;
 
 .same{
     background-color: green;
+}
+
+button{
+    font-size: 20px;
+    font-style: oblique;
+padding-top: 9px;
+padding-bottom : 9px;
 }
