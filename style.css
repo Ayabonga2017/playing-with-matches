@@ -5,8 +5,16 @@
     text-align: center;
     border: 3px solid black;
 }
-
+.matchesfound{
+text-align: center;
+font-size: 8rem;
+margin-top: 5rem;
+}
 .container > div{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.same{
+    background-color: green;
 }
