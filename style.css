@@ -17,9 +17,10 @@ body{
 }
 .matchesfound{
 text-align: center;
-font-size: 8rem;
+font-size: 6rem;
 margin-top: 5rem;
 border: 3px solid black;
+
 }
 .container > div{
     display: grid;
@@ -33,6 +34,9 @@ border: 3px solid black;
 button{
     font-size: 20px;
     font-style: oblique;
-padding-top: 9px;
-padding-bottom : 9px;
+    padding: 1em;
+    font-size: 1em;
+    background-color: yellow;
+    font-weight: bold;
+    font-family: arial;
 }
