@@ -10,16 +10,19 @@ body{
 }
 
 .columns{
-    font-size: 4rem;
+    font-size: 2rem;
     color: aqua;
     text-align: center;
     border: 3px solid black;
 }
 .matchesfound{
-text-align: center;
-font-size: 6rem;
-margin-top: 5rem;
+
+font-size: 2rem;
+
 border: 3px solid black;
+width: 50%;
+margin: auto;
+margin-top: 4rem;
 
 }
 .container > div{

@@ -2,10 +2,11 @@ var row1 = document.querySelectorAll(".row1");
 var row2 =document.querySelectorAll(".row2");
 var row3 =document.querySelectorAll(".row3");
 var columns = document.querySelectorAll(".columns");
-var matchesfound =document.querySelector(".matchesfound");
+var matchesfound =document.querySelectorAll(".matchesfound");
 var randomiseBtn = document.querySelector(".randomiseBtn");
 var flag = false;
 var numbFound ;
+var countRows =0;
 
 randomiseBtn.addEventListener('click',main);
 
@@ -34,12 +35,12 @@ function generateRandomNumbers(rowRandomNumbers,max){
 }
 
 //matches found
-function found(flag, numbFound){
+function found(flag, numbFound, at){
     if(flag){
-        matchesfound.innerHTML = "Matches found at: "+ numbFound;
+        matchesfound[at].innerHTML = "Row "+(at+1)+" Match number: "+ numbFound;
     }
     else{
-        matchesfound.innerHTML = "no matches found";
+        matchesfound[at].innerHTML = "no matches found";
     }
 }
 
@@ -59,6 +60,7 @@ function matchingNumbers(rowChecked){
             }
         }
     }
+    countRows ++;
 }
 
 function removeColour(){
@@ -75,9 +77,13 @@ function main(){
     generateRandomNumbers(row2,20);
     generateRandomNumbers(row3,20);
     matchingNumbers(row1);
+    found(flag, numbFound, 0);
+    flag = false;
     matchingNumbers(row2);
+    found(flag, numbFound, 1);
+    flag = false;
     matchingNumbers(row3);
-    found(flag, numbFound);
+    found(flag, numbFound, 2);
 }
 
 main();
