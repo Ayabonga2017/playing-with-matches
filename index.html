@@ -16,12 +16,12 @@
 		// JavaScript code goes here at the bottom
         function randomNumber(value){
 
-            var rand = Math.random() * value;
+            var rand = Math.floor(Math.random() * value)+1;
             
            return rand;
         }
 
-        document.getElementById("number").innerHTML = randomNumber(10);
+        document.getElementById("number").innerHTML = randomNumber(9);
 	</script>
 </body>
 </html>
