@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The title of my page</title>
-
-	<style type="text/css">
-	/* CSS goes here */
-    .number{
-        font-size: 30rem;
-        color: aqua;
-        text-align: center;
-    }
-	</style>
+    <link rel="stylesheet" href="style.css">
+	<title>Playing With Matches</title>
 </head>
 <body>
+    
     <!-- HTML goes here -->
     <div class="container">
-        <div class="number">8</div>
+        <div id="number"></div>
     </div>
+
+
+    <script type="text/javascript">
+		// JavaScript code goes here at the bottom
+        function randomNumber(value){
+
+            var rand = Math.random() * value;
+            
+           return rand;
+        }
+
+        document.getElementID("number").innerHTML = randomNumber(10);
+	</script>
 </body>
 </html>
