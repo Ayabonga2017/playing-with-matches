@@ -1,5 +1,12 @@
-#number{
-    font-size: 30rem;
+
+.columns{
+    font-size: 8rem;
     color: aqua;
     text-align: center;
+    border: 3px solid black;
+}
+
+.container > div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

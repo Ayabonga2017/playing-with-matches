@@ -8,20 +8,16 @@
     
     <!-- HTML goes here -->
     <div class="container">
-        <div id="number"></div>
+        <div class="row">
+            <div class="columns" id="number1">1</div>
+            <div class="columns" id="number2">2</div>
+            <div class="columns" id="number3">3</div>
+        </div>
     </div>
 
 
-    <script type="text/javascript">
-		// JavaScript code goes here at the bottom
-        function randomNumber(value){
 
-            var rand = Math.floor(Math.random() * value)+1;
-            
-           return rand;
-        }
 
-        document.getElementById("number").innerHTML = randomNumber(9);
-	</script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
