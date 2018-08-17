@@ -1,29 +1,36 @@
-var allNumbers = document.querySelectorAll(".columns");
+var row1 = document.querySelectorAll(".row1");
+var row2 =document.querySelectorAll(".row2");
+var row3 =document.querySelectorAll(".row3");
+var columns = document.querySelectorAll(".columns");
 var matchesfound =document.querySelector(".matchesfound");
 var randomiseBtn = document.querySelector(".randomiseBtn");
 var flag = false;
 var numbFound ;
-var match1 = allNumbers[0];
-var match2 = allNumbers[1];
-
 
 randomiseBtn.addEventListener('click',main);
 
-//generates random numbers between 1 - 9
+//generates random numbers between value
 function randomNumber(value){
     var rand = Math.floor(Math.random() * value)+1;
     return rand;
 }
 
 //locates the div
-function getDiv1(){ allNumbers[0].innerHTML = randomNumber(9); }
-function getDiv2(){ allNumbers[1].innerHTML = randomNumber(9); }
-function getDiv3(){ allNumbers[2].innerHTML = randomNumber(9); }
+// function getDiv1(){ row1[0].innerHTML = randomNumber(9); }
+// function getDiv2(){ row1[1].innerHTML = randomNumber(9); }
+// function getDiv3(){ row1[2].innerHTML = randomNumber(9); }
 
-function callAll(){
-    getDiv1();
-    getDiv2();
-    getDiv3();
+
+// function callAll(){
+//     getDiv1();
+//     getDiv2();
+//     getDiv3();
+// }
+
+function generateRandomNumbers(rowRandomNumbers,max){
+    for(var i = 0 ; i < rowRandomNumbers.length ; i++){
+        rowRandomNumbers[i].innerHTML = randomNumber(max);
+    }
 }
 
 //matches found
@@ -37,36 +44,39 @@ function found(flag, numbFound){
 }
 
 //function that matches 
-function matchingNumbers(){
-    for(var i = 0 ; i < allNumbers.length ; i++){
-        for(var j = 0 ; j < allNumbers.length ; j++){
+function matchingNumbers(rowChecked){
+    for(var i = 0 ; i < rowChecked.length ; i++){
+        for(var j = 0 ; j < rowChecked.length ; j++){
             if(i == j){
 
             }
             else{
-                if(allNumbers[i].innerHTML === allNumbers[j].innerHTML){
-                    allNumbers[i].classList.add("same");
+                if(rowChecked[i].innerHTML === rowChecked[j].innerHTML){
+                    rowChecked[i].classList.add("same");
                     flag = true;
-                    numbFound = allNumbers[i].innerHTML
-                    match1=allNumbers[i];
-                    match2 = allNumbers[j];
+                    numbFound = rowChecked[i].innerHTML;
                 }
             }
         }
     }
 }
 
-function removeColour(match1, match2){
-    match1.classList.remove("same");
-    match2.classList.remove("same");
+function removeColour(){
+    for(var i = 0 ; i < columns.length ; i ++){
+        columns[i].classList.remove("same");
+    }
 }
 
 function main(){
     flag = false;
-    removeColour(match1, match2);
+    removeColour();
     //calling the function to write to the div
-    callAll();
-    matchingNumbers();
+    generateRandomNumbers(row1,20);
+    generateRandomNumbers(row2,20);
+    generateRandomNumbers(row3,20);
+    matchingNumbers(row1);
+    matchingNumbers(row2);
+    matchingNumbers(row3);
     found(flag, numbFound);
 }
 
